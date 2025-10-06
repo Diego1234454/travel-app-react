@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleDown, faCircleUp } from '@fortawesome/free-solid-svg-icons'
+import { motion } from "motion/react"
+
 
 
 const ServicecSection = () => {
@@ -27,8 +29,13 @@ const ServicecSection = () => {
     ]
 
     return (
-        <div className="flex items-center  h-full m-2" id="Services">
-            <div className="flex flex-col items-center py-12 w-full space-y-8">
+        <div className="flex items-center overflow-hidden h-full m-2" id="Services">
+            <motion.div
+                initial={{opacity: 0, x:150}}
+                transition={{duration: 1}}
+                whileInView={{opacity: 1, x:0}}
+                viewport={{once: true}}
+                className="flex flex-col items-center py-12 w-full space-y-8">
                 <h1 className="text-5xl font-light text-gray-700 text-center">Our <span className="font-light text-gray-500 underline">Services</span></h1>
                 <p className="font-light text-gray-700/80 text-2xl text-center">We Offer One Of The Best Tour Services In Mexico City</p>
                 <div className="flex flex-col space-y-2 items-center">
@@ -60,7 +67,7 @@ const ServicecSection = () => {
                 <button className={`text-black ${tourList.length <=3 ? "hidden" : "block"} text-md md:text-lg lg:text-lg xl:text-xl font-light hover:cursor-pointer `} onClick={() => setShowMore(!showMore)}>
                     {indexLimit <= 3 ?  <div><FontAwesomeIcon icon={faCircleDown} style={{color: "#4b5058",}} />See More</div>: <div><FontAwesomeIcon icon={faCircleUp} style={{color: "#4b5058",}} />See Less</div>}
                 </button>
-            </div>
+            </motion.div>
         </div>
     )
 }

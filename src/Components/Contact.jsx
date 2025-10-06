@@ -1,6 +1,7 @@
 import React from 'react'
 import {Facebook, Instagram, MessageCircle} from "lucide-react";
 import { ToastContainer, toast } from 'react-toastify';
+import { motion } from "motion/react"
 
 
 const Contact = () => {
@@ -33,14 +34,19 @@ const Contact = () => {
     };
 
     return (
-        <div className="max-h-full flex flex-col items-center my-8" id="Contact">
+        <div className="max-h-full flex flex-col items-center my-8 overflow-hidden" id="Contact">
             <div className="flex flex-col items-center py-12 w-fit space-y-8">
                 <h1 className="text-5xl font-light text-gray-700 text-center capitalize">Contact <span className="font-light text-gray-500 underline">us</span></h1>
                 <p className="font-light text-gray-700/80 text-2xl text-center capitalize">Here is our social media info</p>
             </div>
 
             <div className="flex flex-col lg:flex-row gap-24 w-fit py-16 ">
-                    <div className="flex flex-col space-y-8 w-full items-center justify-center ">
+                    <motion.div
+                        initial={{opacity: 0, x:-100}}
+                        transition={{duration: 1}}
+                        whileInView={{opacity: 1, x:0}}
+                        viewport={{once: true}}
+                        className="flex flex-col space-y-8 w-full items-center justify-center ">
                         <div className="flex flex-col items-center gap-2 ">
                             <h2 className="font-light text-gray-700/80 text-2xl text-center capitalize">Our Social Media</h2>
                             <div className="flex gap-4">
@@ -64,11 +70,16 @@ const Contact = () => {
                                 <p className="text-gray-90/95 font-light text-center">P.za de la Constitución S/N, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06000 Ciudad de México, CDMX</p>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
 
 
-                <div className="flex flex-col items-center justify-center w-full space-y-4">
+                <motion.div
+                    initial={{opacity: 0, x:150}}
+                    transition={{duration: 1}}
+                    whileInView={{opacity: 1, x:0}}
+                    viewport={{once: true}}
+                    className="flex flex-col items-center justify-center w-full space-y-4">
                     <h2 className="font-light text-gray-700/80 text-md md:text-2xl text-center capitalize">You can also send us an email here</h2>
                     <form onSubmit={onSubmit} className="w-xs md:w-md shadow-xl rounded-xl p-2 ">
                         <div className="flex flex-col w-full space-y-3">
@@ -90,12 +101,16 @@ const Contact = () => {
                             </div>
                         </div>
                     </form>
-                </div>
+                </motion.div>
             </div>
-            <iframe
+            <motion.iframe
+                initial={{opacity: 0, y:150}}
+                transition={{duration: 1}}
+                whileInView={{opacity: 1, y:0}}
+                viewport={{once: true}}
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6900.358845266198!2d-99.14362546764998!3d19.43626730280566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f932c627afe1%3A0x914f3df027515f27!2sCatedral%20Metropolitana%20de%20la%20Ciudad%20de%20M%C3%A9xico!5e0!3m2!1ses-419!2smx!4v1759565555553!5m2!1ses-419!2smx"
                 width="400" height="300" allowFullScreen="" loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade" className="fa-border shadow-2xl max-w-xs md:max-w-md"></iframe>
+                referrerPolicy="no-referrer-when-downgrade" className="fa-border shadow-2xl max-w-xs md:max-w-md"></motion.iframe>
         </div>
     )
 }
