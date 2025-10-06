@@ -5,6 +5,9 @@ import {Eye, EyeOff} from "lucide-react";
 
 const Register = () => {
 
+    document.title = "Register | Viva CDMX";
+
+
     const [isVisible, setIsVisible] = useState(false)
 
     return (

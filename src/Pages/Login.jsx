@@ -7,6 +7,8 @@ const Login = () => {
 
     const [isVisible, setIsVisible] = useState(false)
 
+    document.title = "Login | Viva CDMX";
+
     return (
         <div className="flex flex-col gap-4 h-full overflow-hidden bg-gray-100">
             <Link to="/" className="text-black text-2xl px-8 pt-4 font-bold">Viva CDMX</Link>

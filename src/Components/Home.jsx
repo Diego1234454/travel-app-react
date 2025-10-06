@@ -8,6 +8,10 @@ import Footer from "./Footer.jsx";
 
 
 const Home = () => {
+
+    document.title = "Home | Viva CDMX";
+
+
     return (
         <>
             {/*Seccion Hero*/}
